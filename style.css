@@ -1,0 +1,82 @@
+body, html {
+    font-family: Arial, sans-serif;
+    padding: 0;
+    margin: 0;
+    background: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Main game container styling */
+#gameContainer {
+    background: white;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+}
+
+/* Item container and individual item styling */
+#itemsContainer div {
+    cursor: pointer;
+    background: #e0e0e0;
+    padding: 10px;
+    margin: 5px;
+    display: inline-block;
+    border-radius: 5px;
+}
+
+/* Styling for selected items */
+.item.selected {
+    background-color: #a2d2ff; /* Light blue background for selected items */
+}
+
+/* Buttons styling for better UI */
+.buttons button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-right: 10px;
+    border: none;
+    background-color: #1E90FF;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.buttons button:hover {
+    background-color: #6495ED;
+}
+
+/* Mistake counter styling */
+#mistakeCounter {
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+/* Result container styling, initially hidden */
+#resultsContainer {
+    display: none;
+    padding: 20px;
+    background: #f4f4f4;
+    width: 100%;
+}
+
+/* Individual group styling in results container */
+.group {
+    padding: 10px;
+    margin: 10px 0;
+    color: white;
+    font-size: 16px;
+    background-color: #1E90FF; /* Default blue, customize per group */
+    border-radius: 8px;
+    text-align: left;
+}
+
+.group.fruits { background-color: #FFD700; } /* Yellow */
+.group.animals { background-color: #1E90FF; } /* Blue */
+.group.vegetables { background-color: #32CD32; } /* Green */
+.group.more_animals { background-color: #800080; } /* Purple */

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grouping Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="gameContainer">
+        <h1 id="gameTitle">Create four groups of four!</h1>
+        <div id="itemsContainer"></div>
+        <div class="buttons">
+            <button onclick="shuffleItems()">Shuffle</button>
+            <button onclick="deselectAll()">Deselect All</button>
+            <button onclick="submitAnswer()">Submit</button>
+            <button onclick="resetGame()">Reset</button>
+        </div>
+        <div id="mistakeCounter">Mistakes remaining: ●●●●</div>
+    </div>
+    <div id="resultsContainer"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
