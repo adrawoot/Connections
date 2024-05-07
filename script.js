@@ -88,8 +88,9 @@ function submitAnswer() {
         } else {
             mistakes++;
             document.getElementById('mistakeCounter').textContent = `Mistakes remaining: ${'●'.repeat(maxMistakes - mistakes)}${'○'.repeat(mistakes)}`;
+            document.getElementById('result').textContent = 'Wrong, Try Again';
             if (mistakes >= maxMistakes) {
-                document.getElementById('gameTitle').textContent = "Next Time!";
+                document.getElementById('gameTitle').textContent = "Next Time! Reset to Try Again";
                 displayRemainingCorrectGroups();
                 document.querySelectorAll('button').forEach(button => button.disabled = false); 
             }
@@ -152,6 +153,7 @@ function shuffleItems() {
 function deselectAll() {
     selections = [];
     updateSelections();
+    document.getElementById('result').textContent = ''; 
 }
 
 window.onload = function(){
