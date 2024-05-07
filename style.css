@@ -173,6 +173,7 @@ h1 {
         overflow-y: auto;
         height: auto;
         min-height: 100vh;
+        overflow: visible;
     }
 
     .container {
@@ -222,6 +223,7 @@ h1 {
         overflow-y: auto;
         height: auto;
         min-height: 100vh;
+        overflow: visible;
     }
 
     .container {
