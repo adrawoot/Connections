@@ -21,7 +21,7 @@ body {
 
 .container {
     width: 100%; /* Full width to prevent horizontal overflow */
-    height: 100%; /* Minimum height to take full viewport height */
+    height: auto; /* Minimum height to take full viewport height */
     overflow: visible; /* Allows scrolling within the container if needed */
     display: flex;
     justify-content: center;
