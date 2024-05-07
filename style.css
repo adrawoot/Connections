@@ -18,13 +18,17 @@ body {
 .container {
     width: 80%;
     max-width: 1000px;
-    overflow: scroll;
+    padding-top:70px
 }
 
 .header {
     display: flex;
     align-items: first baseline;
     justify-content: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* High z-index to keep the header above other content */
+    width: 100%;
 }
 
 
