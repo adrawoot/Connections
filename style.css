@@ -22,7 +22,7 @@ body {
 .container {
     width: 100%; /* Full width to prevent horizontal overflow */
     height: 100%; /* Minimum height to take full viewport height */
-    overflow: scroll; /* Allows scrolling within the container if needed */
+    overflow: visible; /* Allows scrolling within the container if needed */
     display: flex;
     flex-direction: column;
     -webkit-overflow-scrolling: touch; /* Smooth scrolling on touch devices */
@@ -179,6 +179,7 @@ h1 {
         padding-top: 20px;
         padding-bottom: 20px;
         max-height: fit-content;
+        overflow: visible;
     }
 
     .header {
@@ -228,6 +229,7 @@ h1 {
         padding-top: 20px;
         padding-bottom: 20px;
         max-height: fit-content;
+        overflow: visible;
     }
 
     h1, #date {
