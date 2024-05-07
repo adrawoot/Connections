@@ -8,6 +8,7 @@ body, html {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    overflow-y: scroll;
 }
 
 body {
@@ -154,7 +155,7 @@ h1 {
 .group.zodiac { background-color: #BB80C5; } /* Purple */
 
 @media (max-width: 768px) {
-    .container {
+    body {
         overflow-y: scroll;
     }
 
@@ -168,6 +169,7 @@ h1 {
     
     h1, #date {
         font-size: 18px;
+        margin-top: 20px;
     }
 
     .buttons button {
@@ -193,11 +195,12 @@ h1 {
 }
 
 @media (max-width: 480px) {
-    .container {
+    body {
         overflow-y: scroll;
     }
-    
+
     h1, #date {
+        margin-top: 20px;
         font-size: 18px;
     }
 
