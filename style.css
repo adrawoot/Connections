@@ -154,6 +154,10 @@ h1 {
 .group.zodiac { background-color: #BB80C5; } /* Purple */
 
 @media (max-width: 768px) {
+    .container {
+        overflow-y: scroll;
+    }
+
     .header {
         flex-direction: column;
     }
@@ -189,6 +193,10 @@ h1 {
 }
 
 @media (max-width: 480px) {
+    .container {
+        overflow-y: scroll;
+    }
+    
     h1, #date {
         font-size: 18px;
     }
