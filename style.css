@@ -16,6 +16,7 @@ body {
 
 .container {
     width: 80%;
+    max-width: 1000px;
 }
 
 .header {
@@ -206,5 +207,17 @@ h1 {
     #itemsContainer div {
         padding: 10px; /* Smaller padding */
         font-size: 12px; /* Smaller font size for text in grid items */
+    }
+}
+
+@media screen and (max-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
+    body, html {
+        min-height: -webkit-fill-available; /* Ensures full height on mobile Safari */
+    }
+
+    body {
+        position: fixed; /* Prevents bounce effect on iOS */
+        overflow: hidden; /* Hides overflow to prevent side scrolling on iOS */
+        width: 100%;
     }
 }
