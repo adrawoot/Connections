@@ -165,6 +165,7 @@ h1 {
     .container {
         max-height: none;
         padding-top: 20px;
+        padding-bottom: 20px;
     }
 
     .header {
@@ -213,6 +214,7 @@ h1 {
         width: 95%; /* Increase width to use more space on smaller screens */
         max-height: none;
         padding-top: 20px;
+        padding-bottom: 20px;
     }
 
     h1, #date {
