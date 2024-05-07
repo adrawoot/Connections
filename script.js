@@ -1,12 +1,11 @@
 const allPossibleItems = [
-    "Apple", "Banana", "Cucumber", "Dog", "Elephant", "Fig", "Grape", "Horse",
-    "Carrot", "Lion", "Melon", "Cat", "Tiger", "Peach", "Strawberry", "Rabbit"
+    "Apple", "Banana", "Fig", "Grape", "Bull", "Crab", "Scales", "Twins", "Clef", "Note", "Rest", "Staff", "Cup", "Medal", "Trophy", "Ribbon"
 ];
 const correctGroups = [
-    { name: "fruits", items: ["Apple", "Banana", "Fig", "Grape"] },
-    { name: "animals", items: ["Dog", "Elephant", "Horse", "Strawberry"] },
-    { name: "vegetables", items: ["Carrot", "Cucumber", "Melon", "Peach"] },
-    { name: "more_animals", items: ["Cat", "Tiger", "Rabbit", "Lion"] }
+    { name: "Fruits", items: ["Apple", "Banana", "Fig", "Grape"] },
+    { name: "Zodiac", items: ["Bull", "Crab", "Scales", "Twins"] },
+    { name: "Music", items: ["Clef", "Note", "Rest", "Staff"] },
+    { name: "Awards", items: ["Cup", "Medal","Trophy", "Ribbon"] }
 ];
 let currentItems = [];
 let selections = [];
@@ -41,17 +40,35 @@ function toggleSelection(item) {
         }
     }
     updateSelections();
+    checkSelectionCount(); // Check selection count after updating selections
 }
 
 function updateSelections() {
     const itemsDivs = document.querySelectorAll('.item');
     itemsDivs.forEach(div => {
         if (selections.includes(div.textContent)) {
-            div.style.background = 'lightgreen';
+            div.style.background = '#5A594F';
+            div.style.color = '#FFFFFF';
         } else {
-            div.style.background = '#e0e0e0';
+            div.style.background = '#EFEFE7';
+            div.style.color = '#000000';
         }
     });
+}
+
+function checkSelectionCount() {
+    // Display a message if the number of selected items is not exactly four
+    if (selections.length !== 4) {
+        document.getElementById('result').textContent = 'Please select exactly four items.';
+    } else {
+        document.getElementById('result').textContent = ''; // Clear message when four items are selected
+    }
+}
+
+let successfullyIdentifiedGroups = [];
+
+function enableButtons() {
+    document.querySelectorAll('button').forEach(button => button.disabled = false);
 }
 
 function submitAnswer() {
@@ -63,20 +80,32 @@ function submitAnswer() {
             selections = [];
             populateItems();
             correctGroupCount++;
+            successfullyIdentifiedGroups.push(groupInfo.name);
             if (correctGroupCount === totalGroups) {
                 document.getElementById('gameTitle').textContent = "Congratulations, You Won!";
-                document.querySelectorAll('button').forEach(button => button.disabled = true);
+                document.querySelectorAll('button').forEach(button => button.disabled = false); 
             }
         } else {
             mistakes++;
             document.getElementById('mistakeCounter').textContent = `Mistakes remaining: ${'●'.repeat(maxMistakes - mistakes)}${'○'.repeat(mistakes)}`;
             if (mistakes >= maxMistakes) {
-                document.querySelectorAll('button').forEach(button => button.disabled = true);
+                document.getElementById('gameTitle').textContent = "Next Time!";
+                displayRemainingCorrectGroups();
+                document.querySelectorAll('button').forEach(button => button.disabled = false); 
             }
         }
     } else {
         document.getElementById('result').textContent = 'Please select exactly four items.';
     }
+}
+
+// Function to display the remaining correct groups not already successfully identified
+function displayRemainingCorrectGroups() {
+    correctGroups.forEach(group => {
+        if (!successfullyIdentifiedGroups.includes(group.name)) {
+            displayCorrectGroup(group);
+        }
+    });
 }
 
 function checkGroupCorrect(selection) {
@@ -90,7 +119,7 @@ function displayCorrectGroup(groupInfo) {
     const resultsContainer = document.getElementById('resultsContainer');
     const groupDiv = document.createElement('div');
     groupDiv.className = 'group ' + groupInfo.name.replace(/\s+/g, '_').toLowerCase();
-    groupDiv.innerHTML = `<strong>${groupInfo.name.toUpperCase()}</strong>: ${groupInfo.items.join(', ')}`;
+    groupDiv.innerHTML = `<strong>${groupInfo.name.toUpperCase()}:</strong> ${groupInfo.items.join(', ')}`;
     resultsContainer.appendChild(groupDiv);
     resultsContainer.style.display = 'block';
 }
@@ -99,9 +128,15 @@ function resetGame() {
     selections = [];
     mistakes = 0;
     correctGroupCount = 0;
+    successfullyIdentifiedGroups = []; // Reset the list of successfully identified groups
     document.getElementById('mistakeCounter').textContent = 'Mistakes remaining: ●●●●';
+    document.getElementById('gameTitle').textContent = "Create four groups of four!";
+    document.getElementById('result').textContent = ''; // Clear any result message
     currentItems = selectRandomItems(16);
     populateItems();
+    enableButtons(); // Ensure all buttons are re-enabled
+    document.getElementById('resultsContainer').innerHTML = ''; // Clear previous results
+    document.getElementById('resultsContainer').style.display = 'none';
 }
 
 function selectRandomItems(count) {
@@ -109,4 +144,19 @@ function selectRandomItems(count) {
     return shuffled.slice(0, count);
 }
 
-window.onload = setupGame;
+function shuffleItems() {
+    currentItems = selectRandomItems(allPossibleItems.length);
+    populateItems();
+}
+
+function deselectAll() {
+    selections = [];
+    updateSelections();
+}
+
+window.onload = function(){
+    setupGame();
+    var currentDate = new Date();
+    var formattedDate = currentDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+    document.getElementById('date').innerHTML = formattedDate;
+}
