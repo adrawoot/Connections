@@ -155,8 +155,15 @@ h1 {
 .group.zodiac { background-color: #BB80C5; } /* Purple */
 
 @media (max-width: 768px) {
-    body {
+    body, html {
         overflow-y: scroll;
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .container {
+        max-height: none;
+        padding-top: 20px;
     }
 
     .header {
@@ -195,8 +202,16 @@ h1 {
 }
 
 @media (max-width: 480px) {
-    body {
+    body, html {
         overflow-y: scroll;
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .container {
+        width: 95%; /* Increase width to use more space on smaller screens */
+        max-height: none;
+        padding-top: 20px;
     }
 
     h1, #date {
