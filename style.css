@@ -18,6 +18,7 @@ body {
 .container {
     width: 80%;
     max-width: 1000px;
+    overflow: scroll;
 }
 
 .header {
