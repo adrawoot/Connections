@@ -73,7 +73,6 @@ h1 {
     height: fit-content;
     width:calc(3 * 8px + 4 * 143px);
     justify-content: center;
-    
 }
     
 /* Item container and individual item styling */
@@ -154,25 +153,32 @@ h1 {
 .group.zodiac { background-color: #BB80C5; } /* Purple */
 
 @media (max-width: 768px) {
-    .header, .content {
+    .header {
         flex-direction: column;
+    }
+    h1, #date {
+        font-size: 18px;
+    }
+
+    .buttons button {
+        font-size: 14px;
+        padding: 8px 16px;
     }
 
     #Connections {
-        margin-right: 0;
-        text-align: center;
+        font-size: 40px;
     }
 
-    #date {
-        text-align: center;
+    #itemsContainer {
+        grid-template-columns: repeat(4, 1fr); /* Maintaining 4x4 grid */
+        grid-gap: 4px; /* Reduced grid gap */
+        width: 100%; /* Fit container width to screen */
+        padding: 0; /* Reduce padding if necessary */
     }
 
-    .container {
-        width: 95%;
-    }
-
-    #gameContainer {
-        width: 100%;
+    #itemsContainer div {
+        padding: 10px; /* Smaller padding */
+        font-size: 12px; /* Smaller font size for text in grid items */
     }
 }
 
