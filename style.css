@@ -107,6 +107,8 @@ h1 {
     color: black;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 25px;
 }
     
 .buttons button:hover {
