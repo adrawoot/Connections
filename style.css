@@ -157,6 +157,11 @@ h1 {
     .header {
         flex-direction: column;
     }
+
+    .content {
+        flex-direction: column;
+    }
+    
     h1, #date {
         font-size: 18px;
     }
