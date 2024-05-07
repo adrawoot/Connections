@@ -23,12 +23,15 @@ body {
     align-items: first baseline;
     justify-content: center;
 }
+
+
 /* "Connections" Heading */
 h1 {
     color: black;
     font-size: 20px;
     font-weight: 500;
     font-family: "Roboto";
+    margin: 0;
 }
 
 #Connections {
@@ -149,3 +152,53 @@ h1 {
 .group.awards { background-color: #B1C3EE; } /* Blue */
 .group.fruits { background-color: #A0C35A; } /* Green */
 .group.zodiac { background-color: #BB80C5; } /* Purple */
+
+@media (max-width: 768px) {
+    .header, .content {
+        flex-direction: column;
+    }
+
+    #Connections {
+        margin-right: 0;
+        text-align: center;
+    }
+
+    #date {
+        text-align: center;
+    }
+
+    .container {
+        width: 95%;
+    }
+
+    #gameContainer {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    h1, #date {
+        font-size: 18px;
+    }
+
+    .buttons button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
+    #Connections {
+        font-size: 40px;
+    }
+
+    #itemsContainer {
+        grid-template-columns: repeat(4, 1fr); /* Maintaining 4x4 grid */
+        grid-gap: 2px; /* Reduced grid gap */
+        width: 100%; /* Fit container width to screen */
+        padding: 0; /* Reduce padding if necessary */
+    }
+
+    #itemsContainer div {
+        padding: 10px; /* Smaller padding */
+        font-size: 12px; /* Smaller font size for text in grid items */
+    }
+}
