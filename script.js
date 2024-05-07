@@ -146,7 +146,17 @@ function selectRandomItems(count) {
 }
 
 function shuffleItems() {
-    currentItems = selectRandomItems(allPossibleItems.length);
+    // Filter out the items that have already been grouped
+    const itemsLeftUngrouped = currentItems.filter(item =>
+        !successfullyIdentifiedGroups.some(groupName => {
+            const group = correctGroups.find(g => g.name === groupName);
+            return group.items.includes(item);
+        })
+    );
+    
+    // Shuffle only the items that are left ungrouped
+    const shuffled = itemsLeftUngrouped.sort(() => 0.5 - Math.random());
+    currentItems = [...shuffled, ...currentItems.filter(item => !itemsLeftUngrouped.includes(item))];
     populateItems();
 }
 
