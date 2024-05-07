@@ -24,6 +24,8 @@ body {
     height: 100%; /* Minimum height to take full viewport height */
     overflow: visible; /* Allows scrolling within the container if needed */
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
     -webkit-overflow-scrolling: touch; /* Smooth scrolling on touch devices */
     position: relative;
@@ -33,10 +35,7 @@ body {
     display: flex;
     align-items: first baseline;
     justify-content: center;
-    position: sticky;
-    top: 0;
     z-index: 1000; /* High z-index to keep the header above other content */
-    width: 100%;
 }
 
 
@@ -46,7 +45,7 @@ h1 {
     font-size: 20px;
     font-weight: 500;
     font-family: "Roboto";
-    margin: 0;
+    margin: 20px;
 }
 
 #Connections {
@@ -65,9 +64,12 @@ h1 {
 
 .content {
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
     flex: 1 0 auto;
+    max-height: fit-content;
+    width: 80%;
 }
     
 /* Main game container styling */
@@ -87,7 +89,7 @@ h1 {
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(4, 1fr);
     height: fit-content;
-    width:calc(3 * 8px + 4 * 143px);
+    max-width:calc(3 * 8px + 4 * 143px);
     justify-content: center;
 }
     
@@ -170,6 +172,7 @@ h1 {
 
 @media (max-width: 768px) {
     body, html {
+        margin-top: 20px;
         overflow-y: auto;
         height: auto;
         min-height: 100vh;
@@ -209,7 +212,7 @@ h1 {
         grid-template-columns: repeat(4, 1fr); /* Maintaining 4x4 grid */
         grid-gap: 4px; /* Reduced grid gap */
         width: 100%; /* Fit container width to screen */
-        padding: 0; /* Reduce padding if necessary */
+        padding: 10px; /* Reduce padding if necessary */
     }
 
     #itemsContainer div {
@@ -235,7 +238,6 @@ h1 {
     }
 
     h1, #date {
-        margin-top: 20px;
         font-size: 18px;
     }
 
